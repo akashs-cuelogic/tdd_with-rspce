@@ -5,7 +5,7 @@ describe User do
   
   #it { should validate_presence_of :email } inline sample
   
-  it "check presence of email" do  # block sample
+  it "check presence of email" do  # block sample old syntax
     should validate_presence_of :email
   end
   
