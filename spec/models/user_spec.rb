@@ -26,7 +26,7 @@ describe User do
   end
   
   it "check email to be valid with factory" do  # checking email can't be blank
-   user = FactoryGirl.create(:user, email: nil)  #overridding factory emails
+   user = FactoryGirl.create(:user)  #overridding factory emails
    expect(user).to be_valid
   end
   
@@ -55,7 +55,8 @@ describe User do
   it "check email is not duplicate with factory" do #with factory
    
    FactoryGirl.create(:user)
-   user = FactoryGirl.create(:user)
+   #user = FactoryGirl.create(:user)
+   user = FactoryGirl.create(:user, email: "arpan209@example.com", username: "arpan209")
    user.valid?
    expect(user.errors[:email]).not_to include("has already been taken")
   end
@@ -75,6 +76,18 @@ describe User do
     #User.checkuser('akki209','asas').should be_nil
     expect(User.checkuser('akki209','asas')).to eq(1)
   end
+ 
+  it "check if user is admin" do
+   user = FactoryGirl.create(:user, email: "arpan209@example.com", username: "arpan209")
+   expect(user.status).to eq(1)
+  end
+  
+  it "check if user is admin" do
+   user = FactoryGirl.create(:user, email: "arpan209@example.com", username: "arpan209")
+   expect(User.check_user_status(user)).to eq(1)
+  end
+  
+  #check_user_status
  
 =begin  
   

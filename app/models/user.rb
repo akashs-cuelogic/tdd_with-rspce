@@ -16,5 +16,14 @@ class User < ActiveRecord::Base
         end
     end
 
+    def self.check_user_status(user)
+        if (user.status == 1)
+          return 1
+        else
+          return 0
+        end
+    end
+    
+    
 
 end

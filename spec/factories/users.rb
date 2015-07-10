@@ -1,13 +1,10 @@
 FactoryGirl.define do
-  
-   sequence :username do |n|
-     "jane_doe#{n}"
-   end
-   
   factory :user do
-    #username 'john_doe'
-    username
-    email "#{username}@example.com"
+    
+    username 'john_doe'
+    #sequence(:username) { |n| 'john_doe#{n}' }
+    sequence(:email) { |n| 'john_doe#{n}@example.com'  }
+    status 1
     
   end
 
