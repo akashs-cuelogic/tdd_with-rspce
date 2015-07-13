@@ -1,0 +1,3 @@
+// Rubocop.yml file for custom rules
+
+Style/LineLength: Max: 99
